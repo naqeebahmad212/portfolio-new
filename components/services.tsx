@@ -1,0 +1,305 @@
+"use client";
+import React from "react";
+import { AuroraBackground } from "./ui/aurora-background";
+import {
+  motion,
+  transform,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+
+const Services = () => {
+  const ref = React.useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+
+  const translateX = useSpring(
+    useTransform(scrollYProgress, [0.7, 1], [0, 1200]),
+    springConfig
+  );
+  const translateXCard1 = useSpring(
+    useTransform(scrollYProgress, [0, 0.5], [-200, 0]),
+    springConfig
+  );
+  const translateXCard2 = useSpring(
+    useTransform(scrollYProgress, [0, 0.5], [-400, 0]),
+    springConfig
+  );
+  const translateXCard3 = useSpring(
+    useTransform(scrollYProgress, [0, 0.5], [-600, 0]),
+    springConfig
+  );
+  return (
+    // <AuroraBackground className="relative">
+    <motion.div
+      style={{
+        translateX,
+      }}
+      ref={ref}
+      className="lg:h-screen w-screen  bg-[#041130] gap-5 flex items-center justify-center flex-col lg:flex-row sticky top-0 "
+    >
+      <div className="absolute top-[80px] w-full my-5 left-5 text-white">
+        <h1 className="w-full text-center text-2xl text-[#bed6fb] font-bold">
+          Services
+        </h1>
+      </div>
+      <motion.div
+        style={{
+          translateX: translateXCard1,
+        }}
+        transition={{ duration: 2 }}
+        className="plan card1 mt-[60px]"
+      >
+        <div className="inner">
+          <span className="pricing">
+            <span>
+              $49 <small>/ m</small>
+            </span>
+          </span>
+          <p className="title">Professional</p>
+          <p className="info">
+            This plan is for those who have a team already and running a large
+            business.
+          </p>
+          <ul className="features">
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                <strong>20</strong> team members
+              </span>
+            </li>
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                Plan <strong>team meetings</strong>
+              </span>
+            </li>
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>File sharing</span>
+            </li>
+          </ul>
+          <div className="action">
+            <a className="button" href="#">
+              Choose plan
+            </a>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        style={{
+          translateX: translateXCard2,
+        }}
+        transition={{ duration: 2 }}
+        className="plan card2 mt-[60px]"
+      >
+        <div className="inner">
+          <span className="pricing">
+            <span>
+              $49 <small>/ m</small>
+            </span>
+          </span>
+          <p className="title">Professional</p>
+          <p className="info">
+            This plan is for those who have a team already and running a large
+            business.
+          </p>
+          <ul className="features">
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                <strong>20</strong> team members
+              </span>
+            </li>
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                Plan <strong>team meetings</strong>
+              </span>
+            </li>
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>File sharing</span>
+            </li>
+          </ul>
+          <div className="action">
+            <a className="button" href="#">
+              Choose plan
+            </a>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        style={{
+          translateX: translateXCard3,
+          transitionProperty: translateX,
+        }}
+        transition={{ duration: 2 }}
+        className="plan card3 mt-[60px]"
+      >
+        <div className="inner">
+          <span className="pricing">
+            <span>
+              $49 <small>/ m</small>
+            </span>
+          </span>
+          <p className="title">Professional</p>
+          <p className="info">
+            This plan is for those who have a team already and running a large
+            business.
+          </p>
+          <ul className="features">
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                <strong>20</strong> team members
+              </span>
+            </li>
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                Plan <strong>team meetings</strong>
+              </span>
+            </li>
+            <li>
+              <span className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    fill="currentColor"
+                    d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                  ></path>
+                </svg>
+              </span>
+              <span>File sharing</span>
+            </li>
+          </ul>
+          <div className="action">
+            <a className="button" href="#">
+              Choose plan
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+    // </AuroraBackground>
+  );
+};
+
+export default Services;
