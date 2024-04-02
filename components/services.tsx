@@ -1,46 +1,37 @@
 "use client";
 import React from "react";
 import { AuroraBackground } from "./ui/aurora-background";
-import {
-  motion,
-  transform,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, transform, useScroll, useTransform } from "framer-motion";
 
 const Services = () => {
-  const ref = React.useRef(null);
+  const servIceRef = React.useRef(null);
 
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: servIceRef,
     offset: ["start end", "end start"],
   });
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  // const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0.7, 1], [0, 1200]),
-    springConfig
-  );
-  const translateXCard1 = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-200, 0]),
-    springConfig
-  );
-  const translateXCard2 = useSpring(
-    useTransform(scrollYProgress, [0, 0.3], [-400, 0]),
-    springConfig
-  );
-  const translateXCard3 = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [-600, 0]),
-    springConfig
-  );
+  const translateX = useTransform(scrollYProgress, [0.7, 1], [0, 1200]);
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [-500, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
+  const translateXCard1 = useTransform(scrollYProgress, [0, 0.2], [-200, 0]);
+
+  const translateXCard2 = useTransform(scrollYProgress, [0, 0.3], [-400, 0]);
+
+  const translateXCard3 = useTransform(scrollYProgress, [0, 0.4], [-600, 0]);
+
   return (
     // <AuroraBackground className="relative">
     <motion.div
       style={{
         translateX,
+        translateY,
+        scale,
+        opacity: scale,
       }}
-      ref={ref}
+      ref={servIceRef}
       className="lg:h-screen w-screen  bg-[#041130] gap-5 flex items-center justify-center flex-col lg:flex-row sticky top-0 "
     >
       <div className="absolute top-0 lg:top-[80px] w-full my-5 left-5 text-white">

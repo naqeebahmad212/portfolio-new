@@ -5,7 +5,7 @@ import { MacbookScroll } from "./ui/macbook-scroll";
 import Image from "next/image";
 import pcImage from "@/Images/pc.png";
 import myImage from "@/Images/myImg.png";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Typed from "./Typed";
 
 const HeroSection = () => {
@@ -29,36 +29,19 @@ const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
+  const translateX = useTransform(scrollYProgress, [0, 1], [0, 500]);
 
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 500]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [1, 0.2]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.8], [0, 500]),
-    springConfig
-  );
-  const translateYBackg = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0, 500]),
-    springConfig
-  );
+  const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+
+  const rotateX = useTransform(scrollYProgress, [0, 0.2], [15, 0]);
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.2]);
+
+  const rotateZ = useTransform(scrollYProgress, [0, 0.2], [20, 0]);
+
+  const translateY = useTransform(scrollYProgress, [0, 0.8], [0, -500]);
+
+  const translateYBackg = useTransform(scrollYProgress, [0, 0.2], [0, 500]);
 
   return (
     <BackgroundGradientAnimation marginTop={translateYBackg} className="">

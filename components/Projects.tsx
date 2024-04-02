@@ -2,13 +2,7 @@
 import React from "react";
 import { BackgroundBeams } from "./ui/background-beams";
 import { LayoutGrid } from "./ui/layout-grid";
-import {
-  MotionValue,
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const Projects = () => {
@@ -17,12 +11,10 @@ const Projects = () => {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [200, 0])
-  );
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [-500, 0]);
 
   const scale = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
-  const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.3], [20, 0]));
+  const rotateZ = useTransform(scrollYProgress, [0, 0.3], [20, 0]);
   const translateX = useTransform(scrollYProgress, [0.5, 1], [0, 1500]);
   const cards = [
     {
@@ -64,7 +56,7 @@ const Projects = () => {
   ];
   return (
     <motion.div
-      style={{ scale, translateX }}
+      style={{ translateX, translateY, opacity: scale }}
       ref={ref}
       className="relative w-screen pb-5 lg:px-[100px] h-screen bg-[#041130]"
     >

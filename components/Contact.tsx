@@ -2,19 +2,19 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import React from "react";
 
-const Contact = () => {
+// write a function to add to number
+
+function Contact() {
   const ref = React.useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "start start"],
   });
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [200, 0])
-  );
+  const translateY = useTransform(scrollYProgress, [0, 0.4], [200, 0]);
 
   const scale = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
-  const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.3], [20, 0]));
+  const rotateZ = useTransform(scrollYProgress, [0, 0.3], [20, 0]);
   const translateX = useTransform(scrollYProgress, [0.5, 0.7], [0, 1500]);
   return (
     <motion.div
@@ -55,6 +55,6 @@ const Contact = () => {
       </div>
     </motion.div>
   );
-};
+}
 
 export default Contact;
