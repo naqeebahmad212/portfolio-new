@@ -57,7 +57,7 @@ const Skills = () => {
       <h1 className="text-center w-full text-2xl font-bold text-[#bed6fb]">
         My Skills
       </h1>
-      <div className="w-full flex justify-around  items-start flex-col lg:flex-row">
+      <div className="w-full flex justify-center lg:justify-around items-center lg:items-start flex-col lg:flex-row">
         <div className="tech-skills  z-[999]">
           <h1 className="text-blue-500 p-10 text-xl font-bold">
             Technical Skills

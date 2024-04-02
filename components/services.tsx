@@ -19,19 +19,19 @@ const Services = () => {
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0.55, 1], [0, 1200]),
+    useTransform(scrollYProgress, [0.7, 1], [0, 1200]),
     springConfig
   );
   const translateXCard1 = useSpring(
-    useTransform(scrollYProgress, [0.2, 0.5], [-200, 0]),
+    useTransform(scrollYProgress, [0, 0.2], [-200, 0]),
     springConfig
   );
   const translateXCard2 = useSpring(
-    useTransform(scrollYProgress, [0.2, 0.5], [-400, 0]),
+    useTransform(scrollYProgress, [0, 0.3], [-400, 0]),
     springConfig
   );
   const translateXCard3 = useSpring(
-    useTransform(scrollYProgress, [0.2, 0.5], [-600, 0]),
+    useTransform(scrollYProgress, [0, 0.4], [-600, 0]),
     springConfig
   );
   return (
@@ -43,7 +43,7 @@ const Services = () => {
       ref={ref}
       className="lg:h-screen w-screen  bg-[#041130] gap-5 flex items-center justify-center flex-col lg:flex-row sticky top-0 "
     >
-      <div className="absolute top-[80px] w-full my-5 left-5 text-white">
+      <div className="absolute top-0 lg:top-[80px] w-full my-5 left-5 text-white">
         <h1 className="w-full text-center text-2xl text-[#bed6fb] font-bold">
           Services
         </h1>
@@ -53,7 +53,7 @@ const Services = () => {
           translateX: translateXCard1,
         }}
         transition={{ duration: 2 }}
-        className="plan card1 mt-[60px] text-gray-300"
+        className="plan w-[80%] md:w-[400px] lg:w-[300px] card1 mt-[60px] text-gray-300"
       >
         <div className="inner">
           <span className="pricing">
@@ -136,7 +136,7 @@ const Services = () => {
           translateX: translateXCard2,
         }}
         transition={{ duration: 2 }}
-        className="plan card2 mt-[60px]"
+        className="plan w-[80%] md:w-[400px] lg:w-[300px] card2 mt-[60px]"
       >
         <div className="inner">
           <span className="pricing">
@@ -220,7 +220,7 @@ const Services = () => {
           transitionProperty: translateX,
         }}
         transition={{ duration: 2 }}
-        className="plan card3 mt-[60px]"
+        className="plan w-[80%] md:w-[400px] lg:w-[300px] card3 mt-[60px]"
       >
         <div className="inner">
           <span className="pricing">
