@@ -52,7 +52,7 @@ const HeroSection = () => {
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0, 500]),
+    useTransform(scrollYProgress, [0, 0.8], [0, 500]),
     springConfig
   );
   const translateYBackg = useSpring(
@@ -117,7 +117,7 @@ const HeroSection = () => {
             exit={{ opacity: 0 }}
             whileTap={{ scale: 0.8 }}
             transition={{ duration: 0.6 }}
-            className={`overflow-hidden h-[350px] image-container flex justify-center items-center self-end  transition-all duration-200 w-[350px]  mr-6`}
+            className={`overflow-hidden h-[350px] image-container flex justify-center items-center self-end  transition-all duration-200 w-[350px] rounded-full  mr-6`}
             style={{
               backgroundColor: `${bgClr}`,
 

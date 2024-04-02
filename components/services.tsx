@@ -19,19 +19,19 @@ const Services = () => {
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0.7, 1], [0, 1200]),
+    useTransform(scrollYProgress, [0.55, 1], [0, 1200]),
     springConfig
   );
   const translateXCard1 = useSpring(
-    useTransform(scrollYProgress, [0, 0.5], [-200, 0]),
+    useTransform(scrollYProgress, [0.2, 0.5], [-200, 0]),
     springConfig
   );
   const translateXCard2 = useSpring(
-    useTransform(scrollYProgress, [0, 0.5], [-400, 0]),
+    useTransform(scrollYProgress, [0.2, 0.5], [-400, 0]),
     springConfig
   );
   const translateXCard3 = useSpring(
-    useTransform(scrollYProgress, [0, 0.5], [-600, 0]),
+    useTransform(scrollYProgress, [0.2, 0.5], [-600, 0]),
     springConfig
   );
   return (
@@ -53,7 +53,7 @@ const Services = () => {
           translateX: translateXCard1,
         }}
         transition={{ duration: 2 }}
-        className="plan card1 mt-[60px]"
+        className="plan card1 mt-[60px] text-gray-300"
       >
         <div className="inner">
           <span className="pricing">

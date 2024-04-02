@@ -11,7 +11,7 @@ import {
 
 const Header = () => {
   return (
-    <header className="fixed top-0 bg-transparent z-[999] w-full shadow-lg ">
+    <header className="fixed top-0 bg-transparent z-[999] w-full  ">
       <nav className="w-full relative p-4 flex items-center justify-between px-10 bg-transparent z-30 ">
         <div className="brand text-2xl font-bold text-white">
           Port <span className="text-blue-500">Folio</span>

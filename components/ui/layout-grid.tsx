@@ -33,34 +33,11 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 
   const ref = React.useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.4], [200, 0])
-  );
-
-  const scale = useSpring(useTransform(scrollYProgress, [0, 0.4], [0, 1]));
-  const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.3], [20, 0]));
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0.5, 0.7], [0, 1500])
-  );
-
   return (
-    <motion.div
-      style={{
-        translateX,
-        scale,
-        rotateZ: rotateZ,
-      }}
-      className="w-full h-full  pb-[100px] grid grid-cols-1 md:grid-cols-3  max-w-7xl mx-auto gap-4 "
-      ref={ref}
-    >
+    <motion.div className="w-full h-full  pb-[100px] grid grid-cols-1 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
       {cards.map((card, i) => (
         <div key={i} className={cn(card.className, "")}>
           <motion.div
-            style={{ translateY: translateY }}
             onClick={() => handleClick(card)}
             className={cn(
               card.className,
@@ -68,8 +45,8 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
               selected?.id === card.id
                 ? "rounded-lg cursor-pointer absolute inset-0 h-[70%] w-full md:w-[70%] m-auto z-50 flex justify-center items-center flex-wrap flex-col"
                 : lastSelected?.id === card.id
-                ? "z-40 bg-white rounded-xl h-full w-full"
-                : "bg-white rounded-xl h-full w-full"
+                  ? "z-40 bg-white rounded-xl h-full w-full"
+                  : "bg-white rounded-xl h-full w-full"
             )}
             layout
           >
@@ -132,7 +109,7 @@ const SelectedCard = ({ selected }: { selected: Card | null }) => {
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="relative px-8 pb-4 z-[70]"
+        className="relative px-8 pb-4 z-[70] text-white"
       >
         {selected?.content}
       </motion.div>
