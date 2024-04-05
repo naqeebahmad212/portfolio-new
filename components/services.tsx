@@ -15,6 +15,7 @@ const Services = () => {
   const translateX = useTransform(scrollYProgress, [0.7, 1], [0, 1200]);
   const translateY = useTransform(scrollYProgress, [0, 0.5], [-500, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
 
   const translateXCard1 = useTransform(scrollYProgress, [0, 0.2], [-200, 0]);
 
@@ -27,9 +28,9 @@ const Services = () => {
     <motion.div
       style={{
         translateX,
-        translateY,
+        
         scale,
-        opacity: scale,
+        opacity,
       }}
       ref={servIceRef}
       className="lg:h-screen w-screen  bg-[#041130] gap-5 flex items-center justify-center flex-col lg:flex-row sticky top-0 "

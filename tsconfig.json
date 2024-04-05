@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["@types/ckeditor"],
+    "target": "es5",
+    "module": "commonjs",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,

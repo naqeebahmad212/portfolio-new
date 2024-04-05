@@ -14,6 +14,7 @@ const Projects = () => {
   const translateY = useTransform(scrollYProgress, [0, 0.5], [-500, 0]);
 
   const scale = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
   const rotateZ = useTransform(scrollYProgress, [0, 0.3], [20, 0]);
   const translateX = useTransform(scrollYProgress, [0.5, 1], [0, 1500]);
   const cards = [
@@ -56,7 +57,7 @@ const Projects = () => {
   ];
   return (
     <motion.div
-      style={{ translateX, translateY, opacity: scale }}
+      style={{ translateX,  opacity, scale }}
       ref={ref}
       className="relative w-screen pb-5 lg:px-[100px] h-screen bg-[#041130]"
     >

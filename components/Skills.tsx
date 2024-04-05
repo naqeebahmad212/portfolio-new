@@ -19,7 +19,7 @@ const Skills = () => {
   });
 
   const secScale = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
   const translateX = useTransform(scrollYProgress, [0.6, 0.9], [0, 1300]);
   const translateY = useTransform(scrollYProgress, [0, 0.5], [-500, 0]);
   let htmlSkills = 89;
@@ -31,12 +31,14 @@ const Skills = () => {
     window.addEventListener("scroll", () => {
       const topPosition = ref.current?.getBoundingClientRect().top;
       const windInner = window.innerHeight;
-      if (topPosition && topPosition - windInner <= 0) {
-        setHtmlProg(99);
-        setTeamWork(78);
-        setProjectCompletion(100);
-        setCreativity(88);
-        setProjectManagement(82);
+      if (topPosition && topPosition - windInner <= -100) {
+        setTimeout(() => {
+          setHtmlProg(99);
+          setTeamWork(78);
+          setProjectCompletion(100);
+          setCreativity(88);
+          setProjectManagement(82);
+        }, 1000);
       } else {
         setHtmlProg(9);
         setTeamWork(0);
@@ -51,9 +53,9 @@ const Skills = () => {
 
   return (
     <motion.div
-      style={{ scale: secScale, translateX, translateY, opacity }}
+      style={{ scale: secScale, translateX,  opacity }}
       ref={ref}
-      className="py-10 w-screen  bg-[#041130]"
+      className="py-10 w-screen lg:h-screen  bg-[#041130]"
     >
       <h1 className="text-center w-full text-2xl font-bold text-[#bed6fb]">
         My Skills
@@ -75,6 +77,7 @@ const Skills = () => {
                   scaleX: `.${htmlSkills}`,
                   transformOrigin: "left",
                 }}
+                transition={{ duration: 2, delay: 1 }}
                 className={`progBar w-[100%] transition-all duration-1000 ease-in h-2 bg-blue-500 rounded-full absolute top-0 left-0`}
               ></motion.div>
             </div>
@@ -91,6 +94,7 @@ const Skills = () => {
                   scaleX: `.${cssSkills}`,
                   transformOrigin: "left",
                 }}
+                transition={{ duration: 2, delay: 1 }}
                 className={`progBar w-[100%] transition-all duration-1000 ease-in h-2 bg-blue-500 rounded-full absolute top-0 left-0`}
               ></motion.div>
             </div>
@@ -108,6 +112,7 @@ const Skills = () => {
                   scaleX: `.${jsSkills}`,
                   transformOrigin: "left",
                 }}
+                transition={{ duration: 2, delay: 1 }}
                 className={`progBar w-[100%] transition-all duration-1000 ease-in h-2 bg-blue-500 rounded-full absolute top-0 left-0`}
               ></motion.div>
             </div>
@@ -125,6 +130,7 @@ const Skills = () => {
                   scaleX: `.${reactSkills}`,
                   transformOrigin: "left",
                 }}
+                transition={{ duration: 2, delay: 1 }}
                 className={`progBar w-[100%] transition-all duration-1000 ease-in h-2 bg-blue-500 rounded-full absolute top-0 left-0`}
               ></motion.div>
             </div>
